@@ -25,6 +25,12 @@ public class Student {
         this.email = email;
     }
 
+    public Student() {
+        this.lastName = "xyz";
+        this.firstName = "xyz";
+        this.email = "xyz";
+    }
+
     public int getId() {
         return id;
     }

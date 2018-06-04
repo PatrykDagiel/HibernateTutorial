@@ -25,14 +25,20 @@ public class QueryStudentDemo {
 
             //display students
             displayStudents(theStudents);
-
-            // query students last name = "Doe"
-            theStudents = session.createQuery("from Student s where s.lastName='Doe'").getResultList();
-
+//
+//            // query students: lastName Doe OR firstName Daffy
+            theStudents = session.createQuery("from Student s where" + " s.lastName='Doe' OR s.lastName='Maciek'").getResultList();
             displayStudents(theStudents);
+
+            // email ending LIKE %gmail.com
+            theStudents = session.createQuery("from Student s where"
+            + " s.email LIKE '%gmail.com'").getResultList();
+            displayStudents(theStudents);
+
             //commit transaction
             session.getTransaction().commit();
         } finally {
+            factory.close();
         }
 
     }
