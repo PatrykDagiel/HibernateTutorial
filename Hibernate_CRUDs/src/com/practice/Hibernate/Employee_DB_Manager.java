@@ -51,7 +51,7 @@ public class Employee_DB_Manager {
             List<Employee> theEmployees = session.createQuery("from Employee").getResultList();
             queryStudents(theEmployees);
             session.getTransaction().commit();
-            
+
             //--- Delete ---//
             System.out.println("Removal: employee with id 2");
             session = factory.getCurrentSession();
