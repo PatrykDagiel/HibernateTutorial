@@ -60,16 +60,14 @@ public class Employee_DB_Manager {
             session.getTransaction().commit();
             queryStudents(theEmployees);
             System.out.println("Session done");
-        }
-
-        finally {
+        } finally {
             factory.close();
         }
     }
 
     private static void queryStudents(List<Employee> list) {
         int counter = 1;
-        for(Employee x : list) {
+        for (Employee x : list) {
             System.out.println("Oto pracownik numer " + counter++ + " " + x);
         }
     }

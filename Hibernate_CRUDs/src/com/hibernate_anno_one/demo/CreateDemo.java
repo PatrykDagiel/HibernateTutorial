@@ -1,17 +1,20 @@
-package com.dagiel.hibernate.demo;
+package com.hibernate_anno_one.demo;
 
 import com.dagiel.entity.Student;
+import com.hibernate_anno_one.entity.Instructor;
+import com.hibernate_anno_one.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class CreateStudentDemo {
+public class CreateDemo {
     public static void main(String[] args) {
         //create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Instructor.class)
+                .addAnnotatedClass(InstructorDetail.class)
                 .buildSessionFactory();
         //create session
         Session session = factory.getCurrentSession();

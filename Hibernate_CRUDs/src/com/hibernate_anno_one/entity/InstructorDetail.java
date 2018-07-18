@@ -3,11 +3,11 @@ package com.hibernate_anno_one.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="instructorDetail")
+@Table(name = "instructorDetail")
 public class InstructorDetail {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 

@@ -3,7 +3,7 @@ package com.practice.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="employee")
+@Table(name = "employee")
 public class Employee {
     @Id    //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +16,11 @@ public class Employee {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name="company")
+    @Column(name = "company")
     private String company;
 
-    public Employee() {}
+    public Employee() {
+    }
 
     public Employee(String lastName, String firstName, String company) {
         this.firstName = firstName;
