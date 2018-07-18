@@ -21,13 +21,20 @@ public class CreateDemo {
 
         try {
             // use the session object to save Java object
-            System.out.println("Creating new student object");
-            // create a Student object
-            Student student = new Student("Maciek", "Kowalski", "olaboga@gmail.com");
+            System.out.println("Creating new instructor and inst_details object");
+            // create and associate objects
+            Instructor tempInstructor = new Instructor("Chad", "Darby", "darby@lub2code.com");
+            InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.luv2code.com/youtube", "luv 2 code");
+
+            //associate objects
+            tempInstructor.setInstructorDetail(tempInstructorDetail);
+
             // start a transaction
             session.beginTransaction();
-            // save the student object
-            session.save(student);
+
+            // save instructor
+
+
             // commit transaction
             session.getTransaction().commit();
             System.out.println("Done correctly");
