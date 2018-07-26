@@ -3,7 +3,7 @@ package com.hibernate_anno_one.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "instructorDetail")
+@Table(name = "instructor_detail")
 public class InstructorDetail {
 
     @Id
