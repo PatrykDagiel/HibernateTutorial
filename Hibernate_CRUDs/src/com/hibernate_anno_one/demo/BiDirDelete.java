@@ -19,7 +19,7 @@ public class BiDirDelete {
 
         try {
             session.beginTransaction();
-            int theId = 2;
+            int theId = 3;
             InstructorDetail temInstructorDetail = session.get(InstructorDetail.class, theId);
 
             //print theInstructorDetail
@@ -27,6 +27,10 @@ public class BiDirDelete {
 
             //print associated instructor
             System.out.println("Associated instructor is: " + temInstructorDetail.getInstructor());
+
+            //remove the associated object reference
+            //break bi-directional link
+            temInstructorDetail.getInstructor().setInstructorDetail(null);
 
             // delete Instructor Detail with passed ID
             System.out.printf("Deleting temInstructorDetail " + temInstructorDetail);

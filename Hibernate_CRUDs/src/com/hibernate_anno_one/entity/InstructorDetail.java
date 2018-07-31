@@ -17,7 +17,8 @@ public class InstructorDetail {
     @Column(name = "hobby")
     private String hobby;
 
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)    // mapped by instructorDetail parameter in Instructor class + cascade all operations to the associated Instructor
+    @OneToOne(mappedBy = "instructorDetail",
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})    // mapped by instructorDetail parameter in Instructor class + cascade all operations to the associated Instructor
     private Instructor instructor;
 
     public Instructor getInstructor() {
