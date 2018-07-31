@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class BiDirDemo {
+public class BiDirDelete {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
@@ -27,6 +27,10 @@ public class BiDirDemo {
 
             //print associated instructor
             System.out.println("Associated instructor is: " + temInstructorDetail.getInstructor());
+
+            // delete Instructor Detail with passed ID
+            System.out.printf("Deleting temInstructorDetail " + temInstructorDetail);
+            session.delete(temInstructorDetail);
 
             session.getTransaction().commit();
 
