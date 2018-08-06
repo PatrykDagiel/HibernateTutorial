@@ -30,13 +30,14 @@ public class EagerLazyDemo {
 
             System.out.println("luv2code: Instructor:  " + theInstructor);
             System.out.println("Pause");
-            // get courses
             System.out.println("luv2code: Courses: " + theInstructor.getCourses());
-
-
 
             // commit transaction
             session.getTransaction().commit();
+            session.close();
+
+            // get courses - should fail
+            System.out.println("luv2code: Courses: " + theInstructor.getCourses());
             System.out.println("Done correctly");
         } finally {
             factory.close();
