@@ -1,6 +1,8 @@
 package com.hibernate_one_to_many_uni.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "course")
@@ -13,6 +15,10 @@ public class Course {
 
     @Column(name = "title")
     private String title;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
+    private List<Review> reviews;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "instructor_id")    // kolumna w tabeli Course, która pokaże na instructor ID
@@ -30,6 +36,15 @@ public class Course {
         this.instructor = instructor;
     }
 
+    // add conienience method
+    public void addReview(Review theReview) {
+        if(reviews == null) {
+            reviews = new ArrayList<Review>();
+        }
+
+        reviews.add(theReview);
+    }
+
     @Override
     public String toString() {
         return "Course{" +
@@ -40,6 +55,14 @@ public class Course {
 
     public int getId() {
         return id;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public void setId(int id) {
