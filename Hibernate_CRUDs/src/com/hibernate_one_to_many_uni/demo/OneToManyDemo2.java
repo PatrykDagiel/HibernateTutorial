@@ -34,6 +34,15 @@ public class OneToManyDemo2 {
             // print reviews
             System.out.println("Those are our reviews for this course: " + tempCourse.getReviews());
 
+            // create a course
+            Course tempCourse2 = new Course("Mario Bros");
+            //add some reviews
+            tempCourse2.addReview(new Review("Test I"));
+            tempCourse2.addReview(new Review("Test II"));
+            tempCourse2.addReview(new Review("Test III"));
+
+            session.delete(tempCourse);
+
             session.getTransaction().commit();
 
             System.out.println("Done correctly");
